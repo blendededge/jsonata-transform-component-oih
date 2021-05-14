@@ -1,4 +1,4 @@
-# jsonata-transform-component [![NPM version][npm-image]][npm-url] [![Build Status][travis-image]][travis-url] [![Dependency Status][daviddm-image]][daviddm-url]
+# jsonata-transform-component-oih [![NPM version][npm-image]][npm-url] [![Build Status][travis-image]][travis-url] [![Dependency Status][daviddm-image]][daviddm-url]
 > Dedicated data transformation component for Open Integration Hub platform based on JSONata
 
 ## Authentication
