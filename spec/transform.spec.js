@@ -1,29 +1,36 @@
 /* eslint-disable arrow-body-style */
 
 const { expect } = require('chai');
-const { messages } = require('elasticio-node');
 const logger = require('@elastic.io/component-commons-library/lib/logger/logger').getLogger();
 const transform = require('../lib/actions/transform');
 
 describe('Transformation test', () => {
   it('should handle simple transforms', () => {
-    return transform.process.call({ logger }, messages.newMessageWithBody({
-      first: 'Renat',
-      last: 'Zubairov',
-    }), {
+    return transform.process.call({ logger }, {
+      data: {
+        first: 'Renat',
+        last: 'Zubairov',
+      },
+      attachments: {},
+      metadata: {},
+    }, {
       expression: '{ "fullName": first & " " & last }',
     }).then((result) => {
-      expect(result.body).to.deep.equal({
+      expect(result.data).to.deep.equal({
         fullName: 'Renat Zubairov',
       });
     });
   });
 
   it('should not produce an empty message if transformation returns undefined', () => {
-    return transform.process.call({ logger }, messages.newMessageWithBody({
-      first: 'Renat',
-      last: 'Zubairov',
-    }), {
+    return transform.process.call({ logger }, {
+      data: {
+        first: 'Renat',
+        last: 'Zubairov',
+      },
+      attachments: {},
+      metadata: {},
+    }, {
       expression: '$[foo=2].({ "foo": boom })',
     }).then((result) => {
       expect(result).to.be.an('undefined');
@@ -31,27 +38,35 @@ describe('Transformation test', () => {
   });
 
   it('should handle passthough properly', () => {
-    const msg = messages.newMessageWithBody({
-      first: 'Renat',
-      last: 'Zubairov',
-    });
+    const msg = {
+      data: {
+        first: 'Renat',
+        last: 'Zubairov',
+      },
+      attachments: {},
+      metadata: {},
+    };
     msg.passthrough = {
       ps: 'psworks',
     };
     return transform.process.call({ logger }, msg, {
       expression: '{ "fullName": first & " " & elasticio.ps}',
     }).then((result) => {
-      expect(result.body).to.deep.equal({
+      expect(result.data).to.deep.equal({
         fullName: 'Renat psworks',
       });
     });
   });
 
   it('should handle getFlowVariables properly', () => {
-    const msg = messages.newMessageWithBody({
-      first: 'Renat',
-      last: 'Zubairov',
-    });
+    const msg = {
+      data: {
+        first: 'Renat',
+        last: 'Zubairov',
+      },
+      attachments: {},
+      metadata: {},
+    };
     msg.passthrough = {
       ps: 'psworks',
     };
@@ -62,22 +77,26 @@ describe('Transformation test', () => {
     return transform.process.call({ logger, getFlowVariables: () => flowVariables }, msg, {
       expression: '$getFlowVariables()',
     }).then((result) => {
-      expect(result.body).to.deep.equal(flowVariables);
+      expect(result.data).to.deep.equal(flowVariables);
     });
   });
 
   it('should call getPassthrough', () => {
-    const msg = messages.newMessageWithBody({
-      first: 'Renat',
-      last: 'Zubairov',
-    });
+    const msg = {
+      data: {
+        first: 'Renat',
+        last: 'Zubairov',
+      },
+      attachments: {},
+      metadata: {},
+    };
     msg.passthrough = {
       ps: 'psworks',
     };
     return transform.process.call({ logger }, msg, {
       expression: '$getPassthrough()',
     }).then((result) => {
-      expect(result.body).to.deep.equal({
+      expect(result.data).to.deep.equal({
         ps: 'psworks',
       });
     });
