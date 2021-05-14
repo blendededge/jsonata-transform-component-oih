@@ -1,8 +1,8 @@
 {
-  "name": "jsonata-transform-component",
-  "version": "1.0.9",
-  "description": "elastic.io integration component for data transformation with JSONata expression",
-  "homepage": "https://www.elastic.io",
+  "name": "jsonata-transform-component-oih",
+  "version": "1.0.0",
+  "description": "Forked elastic.io integration component for data transformation with JSONata expression for Open Integration Hub (OIH)",
+  "homepage": "https://www.blendededge.com",
   "author": {
     "name": "elastic.io GmbH",
     "email": "info@elastic.io",
@@ -13,10 +13,8 @@
   ],
   "keywords": [
     "jsonata",
-    "elasticio",
     "ipaas",
-    "integration",
-    "elasticio-component"
+    "integration"
   ],
   "scripts": {
     "pretest": "eslint lib spec --ext .json --ext .js --fix",
@@ -28,7 +26,7 @@
   "dependencies": {
     "@elastic.io/component-commons-library": "1.1.4",
     "elasticio-node": "0.0.9",
-    "elasticio-sailor-nodejs": "2.6.24",
+    "@openintegrationhub/ferryman": "^1.5.2",
     "request": "2.88.0"
   },
   "devDependencies": {
@@ -43,6 +41,6 @@
     "eslint-plugin-import": "2.20.2",
     "mocha": "3.5.3"
   },
-  "repository": "elasticio/jsonata-transform-component",
+  "repository": "blendededge/jsonata-transform-component-oih",
   "license": "Apache-2.0"
 }
