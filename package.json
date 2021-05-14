@@ -14,7 +14,7 @@
   "keywords": [
     "jsonata",
     "ipaas",
-    "integration",
+    "integration"
   ],
   "scripts": {
     "pretest": "eslint lib spec --ext .json --ext .js --fix",
@@ -26,7 +26,7 @@
   "dependencies": {
     "@elastic.io/component-commons-library": "1.1.4",
     "elasticio-node": "0.0.9",
-    "@openintegrationhub/ferryman": "^1.1.5",
+    "@openintegrationhub/ferryman": "^1.5.2",
     "request": "2.88.0"
   },
   "devDependencies": {
