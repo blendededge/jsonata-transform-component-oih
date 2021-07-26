@@ -11,6 +11,9 @@
           "label": "JSONata Expression",
           "required": true,
           "viewClass": "JSONataView"
+        },
+        "iso2to3": {
+          "label": "Convert ISO2 to ISO3"
         }
       },
       "metadata" : {
