@@ -12,8 +12,8 @@
           "required": true,
           "viewClass": "JSONataView"
         },
-        "iso2to3": {
-          "label": "Convert ISO2 to ISO3"
+        "manualTransform": {
+          "label": "Allows for custom functions to be added to transformation"
         }
       },
       "metadata" : {
