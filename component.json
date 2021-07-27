@@ -12,7 +12,7 @@
           "required": true,
           "viewClass": "JSONataView"
         },
-        "manualTransform": {
+        "extendedFunctions": {
           "label": "Allows for custom functions to be added to transformation"
         }
       },
