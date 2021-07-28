@@ -11,6 +11,9 @@
           "label": "JSONata Expression",
           "required": true,
           "viewClass": "JSONataView"
+        },
+        "extendedFunctions": {
+          "label": "Allows for custom functions to be added to transformation"
         }
       },
       "metadata" : {

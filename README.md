@@ -108,6 +108,64 @@ resulting in ([jsonata link](http://try.jsonata.org/B1ctn36ub)):
 }
 ```
 
+## Extended Functions
+
+Setting the configuration field `extendedFunctions` to `true` provides additional functions that can be used within your JSONata transformation. 
+
+### ISO2 Country Code to ISO3 Country Code
+
+The `$iso2to3` function accepts a 2 digit ISO Code and returns the 3 digit ISO code. 
+
+For example, take the following JSON object and JSONata expression.
+
+```json
+{
+  "ISO2": "CA"
+}
+```
+
+```json
+{
+  "ISO3": $iso2to3(ISO2)
+}
+```
+
+The JSONata expression will result in
+
+```json
+{
+  "ISO3": "CAN"
+}
+```
+
+
+### Phone Country Code to ISO3 Country Code
+
+The `$phoneCodeToIso3` function accepts a phone country code (i.e., 1 for USA, 44 for United Kingdom) and returns the 3 digit ISO code.
+
+For example, take the following JSON object and JSONata expression.
+
+```json
+{
+  "phoneCode": "44"
+}
+```
+
+```json
+{
+  "ISO3": $phoneCodeToIso3(phoneCode)
+}
+```
+
+The JSONata expression will result in
+
+```json
+{
+  "ISO3": "GBR"
+}
+```
+
+
 ## License
 
 Apache-2.0 © [elastic.io GmbH](http://elastic.io)
