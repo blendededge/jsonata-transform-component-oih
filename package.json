@@ -24,7 +24,7 @@
     "node": "14"
   },
   "dependencies": {
-    "@blendededge/ferryman-extensions": "^1.0.3",
+    "@blendededge/ferryman-extensions": "^1.0.4",
     "@elastic.io/component-commons-library": "1.1.5",
     "@openintegrationhub/ferryman": "~1.5.2",
     "country-code-lookup": "^0.0.19",
