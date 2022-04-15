@@ -1,8 +1,13 @@
 /* eslint-disable arrow-body-style */
-
 const { expect } = require('chai');
-const logger = require('@elastic.io/component-commons-library/lib/logger/logger').getLogger();
 const transform = require('../lib/actions/transform');
+
+// stub logger to prevent errors
+const logger = {
+  debug: () => {},
+  info: () => {},
+  error: () => {},
+};
 
 describe('Transformation test', () => {
   it('should handle simple transforms', () => {
