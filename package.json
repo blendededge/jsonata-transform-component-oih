@@ -26,7 +26,7 @@
   "dependencies": {
     "@blendededge/ferryman-extensions": "^1.0.4",
     "@elastic.io/component-commons-library": "1.1.5",
-    "@openintegrationhub/ferryman": "~1.5.2",
+    "@openintegrationhub/ferryman": "~2.1.0",
     "country-code-lookup": "^0.0.19",
     "jsonata": "^1.7.0"
   },
