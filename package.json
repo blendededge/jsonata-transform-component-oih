@@ -3,11 +3,7 @@
   "version": "1.0.1",
   "description": "Forked elastic.io integration component for data transformation with JSONata expression for Open Integration Hub (OIH)",
   "homepage": "https://www.blendededge.com",
-  "author": {
-    "name": "elastic.io GmbH",
-    "email": "info@elastic.io",
-    "url": "https://www.elastic.io"
-  },
+  "author": "Blended Edge, LLC",
   "files": [
     "lib"
   ],
