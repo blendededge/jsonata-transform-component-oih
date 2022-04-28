@@ -7,7 +7,7 @@ This component requires no authentication.
 
 ## How it works
 
-This component takes the incoming message data and applies the configured JSONata tranformation on it. It uses 
+This component takes the incoming message data and applies the configured JSONata tranformation on it. It uses
 a fact that JSONata expression is a superset of JSON document so that by default any valid JSON document is
 a valid JSONata expression.
 
@@ -110,11 +110,11 @@ resulting in ([jsonata link](http://try.jsonata.org/B1ctn36ub)):
 
 ## Extended Functions
 
-Setting the configuration field `extendedFunctions` to `true` provides additional functions that can be used within your JSONata transformation. 
+Setting the configuration field `extendedFunctions` to `true` provides additional functions that can be used within your JSONata transformation.
 
 ### ISO2 Country Code to ISO3 Country Code
 
-The `$iso2to3` function accepts a 2 digit ISO Code and returns the 3 digit ISO code. 
+The `$iso2to3` function accepts a 2 digit ISO Code and returns the 3 digit ISO code.
 
 For example, take the following JSON object and JSONata expression.
 
@@ -164,16 +164,3 @@ The JSONata expression will result in
   "ISO3": "GBR"
 }
 ```
-
-
-## License
-
-Apache-2.0 © [elastic.io GmbH](http://elastic.io)
-
-
-[npm-image]: https://badge.fury.io/js/jsonata-transform-component.svg
-[npm-url]: https://npmjs.org/package/jsonata-transform-component
-[travis-image]: https://travis-ci.org/elasticio/jsonata-transform-component.svg?branch=master
-[travis-url]: https://travis-ci.org/elasticio/jsonata-transform-component
-[daviddm-image]: https://david-dm.org/elasticio/jsonata-transform-component.svg?theme=shields.io
-[daviddm-url]: https://david-dm.org/elasticio/jsonata-transform-component

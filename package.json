@@ -3,11 +3,7 @@
   "version": "1.0.1",
   "description": "Forked elastic.io integration component for data transformation with JSONata expression for Open Integration Hub (OIH)",
   "homepage": "https://www.blendededge.com",
-  "author": {
-    "name": "elastic.io GmbH",
-    "email": "info@elastic.io",
-    "url": "https://www.elastic.io"
-  },
+  "author": "Blended Edge, LLC",
   "files": [
     "lib"
   ],
@@ -24,7 +20,7 @@
     "node": "14"
   },
   "dependencies": {
-    "@blendededge/ferryman-extensions": "^1.0.4",
+    "@blendededge/ferryman-extensions": "^1.1.1",
     "@elastic.io/component-commons-library": "1.1.5",
     "@openintegrationhub/ferryman": "~2.1.0",
     "country-code-lookup": "^0.0.19",

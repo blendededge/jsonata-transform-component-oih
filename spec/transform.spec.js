@@ -19,7 +19,7 @@ describe('Transformation test', () => {
       attachments: {},
       metadata: {},
     }, {
-      expression: '{ "fullName": first & " " & last }',
+      expression: '$$.data.{ "fullName": first & " " & last }',
     }).then((result) => {
       expect(result.data).to.deep.equal({
         fullName: 'Renat Zubairov',
@@ -49,13 +49,16 @@ describe('Transformation test', () => {
         last: 'Zubairov',
       },
       attachments: {},
-      metadata: {},
-    };
-    msg.passthrough = {
-      ps: 'psworks',
+      metadata: {
+        passthrough: {
+          stepA: {
+            abc: 'psworks',
+          },
+        },
+      },
     };
     return transform.process.call({ logger }, msg, {
-      expression: '{ "fullName": first & " " & elasticio.ps}',
+      expression: '{ "fullName": data.first & " " & metadata.passthrough.stepA.abc}',
     }).then((result) => {
       expect(result.data).to.deep.equal({
         fullName: 'Renat psworks',
@@ -72,9 +75,6 @@ describe('Transformation test', () => {
       attachments: {},
       metadata: {},
     };
-    msg.passthrough = {
-      ps: 'psworks',
-    };
     const flowVariables = {
       var1: 'value1',
       var2: 'value2',
@@ -83,27 +83,6 @@ describe('Transformation test', () => {
       expression: '$getFlowVariables()',
     }).then((result) => {
       expect(result.data).to.deep.equal(flowVariables);
-    });
-  });
-
-  it('should call getPassthrough', () => {
-    const msg = {
-      data: {
-        first: 'Renat',
-        last: 'Zubairov',
-      },
-      attachments: {},
-      metadata: {},
-    };
-    msg.passthrough = {
-      ps: 'psworks',
-    };
-    return transform.process.call({ logger }, msg, {
-      expression: '$getPassthrough()',
-    }).then((result) => {
-      expect(result.data).to.deep.equal({
-        ps: 'psworks',
-      });
     });
   });
 });
