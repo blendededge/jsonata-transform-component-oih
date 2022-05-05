@@ -9,10 +9,10 @@ const logger = {
   error: () => {},
 };
 
-const emit = () => {};
-
 describe('Transformation test', () => {
   it('should handle simple transforms', () => {
+    let response;
+    const emit = (type, data) => { response = data; };
     return transform.process.call({ logger, emit }, {
       data: {
         first: 'Renat',
@@ -22,14 +22,16 @@ describe('Transformation test', () => {
       metadata: {},
     }, {
       expression: '$$.data.{ "fullName": first & " " & last }',
-    }).then((result) => {
-      expect(result.data).to.deep.equal({
+    }).then(() => {
+      expect(response.data).to.deep.equal({
         fullName: 'Renat Zubairov',
       });
     });
   });
 
   it('should not produce an empty message if transformation returns undefined', () => {
+    let response;
+    const emit = (type, data) => { response = data; };
     return transform.process.call({ logger, emit }, {
       data: {
         first: 'Renat',
@@ -39,12 +41,14 @@ describe('Transformation test', () => {
       metadata: {},
     }, {
       expression: '$[foo=2].({ "foo": boom })',
-    }).then((result) => {
-      expect(result).to.be.an('undefined');
+    }).then(() => {
+      expect(response).to.be.an('undefined');
     });
   });
 
   it('should handle passthough properly', () => {
+    let response;
+    const emit = (type, data) => { response = data; };
     const msg = {
       data: {
         first: 'Renat',
@@ -61,14 +65,16 @@ describe('Transformation test', () => {
     };
     return transform.process.call({ logger, emit }, msg, {
       expression: '{ "fullName": data.first & " " & metadata.passthrough.stepA.abc}',
-    }).then((result) => {
-      expect(result.data).to.deep.equal({
+    }).then(() => {
+      expect(response.data).to.deep.equal({
         fullName: 'Renat psworks',
       });
     });
   });
 
   it('should handle getFlowVariables properly', () => {
+    let response;
+    const emit = (type, data) => { response = data; };
     const msg = {
       data: {
         first: 'Renat',
@@ -83,8 +89,8 @@ describe('Transformation test', () => {
     };
     return transform.process.call({ logger, emit, getFlowVariables: () => flowVariables }, msg, {
       expression: '$getFlowVariables()',
-    }).then((result) => {
-      expect(result.data).to.deep.equal(flowVariables);
+    }).then(() => {
+      expect(response.data).to.deep.equal(flowVariables);
     });
   });
 });
