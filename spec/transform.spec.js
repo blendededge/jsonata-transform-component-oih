@@ -12,7 +12,11 @@ const logger = {
 describe('Transformation test', () => {
   it('should handle simple transforms', () => {
     let response;
-    const emit = (type, data) => { response = data; };
+    const emit = (type, data) => {
+      if (type === 'data') {
+        response = data;
+      }
+    };
     return transform.process.call({ logger, emit }, {
       data: {
         first: 'Renat',
@@ -31,7 +35,11 @@ describe('Transformation test', () => {
 
   it('should not produce an empty message if transformation returns undefined', () => {
     let response;
-    const emit = (type, data) => { response = data; };
+    const emit = (type, data) => {
+      if (type === 'data') {
+        response = data;
+      }
+    };
     return transform.process.call({ logger, emit }, {
       data: {
         first: 'Renat',
@@ -48,7 +56,11 @@ describe('Transformation test', () => {
 
   it('should handle passthough properly', () => {
     let response;
-    const emit = (type, data) => { response = data; };
+    const emit = (type, data) => {
+      if (type === 'data') {
+        response = data;
+      }
+    };
     const msg = {
       data: {
         first: 'Renat',
@@ -74,7 +86,11 @@ describe('Transformation test', () => {
 
   it('should handle getFlowVariables properly', () => {
     let response;
-    const emit = (type, data) => { response = data; };
+    const emit = (type, data) => {
+      if (type === 'data') {
+        response = data;
+      }
+    };
     const msg = {
       data: {
         first: 'Renat',
