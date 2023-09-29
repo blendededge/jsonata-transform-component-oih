@@ -4,9 +4,11 @@ const transform = require('../lib/actions/transform');
 
 // stub logger to prevent errors
 const logger = {
-  debug: () => {},
-  info: () => {},
-  error: () => {},
+  child: () => ({
+    debug: () => {},
+    info: () => {},
+    error: () => {},
+  }),
 };
 
 describe('Transformation test', () => {

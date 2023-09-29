@@ -1,4 +1,4 @@
-FROM node:12-alpine AS base
+FROM node:18-alpine AS base
 ENV ELASTICIO_OTEL_SERVICE_NAME=COMPONENT:JSONATA
 RUN apk --no-cache add \
     python3 \
