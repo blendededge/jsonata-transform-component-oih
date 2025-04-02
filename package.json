@@ -1,6 +1,6 @@
 {
   "name": "jsonata-transform-component-oih",
-  "version": "3.0.3",
+  "version": "3.1.0",
   "description": "Forked elastic.io integration component for data transformation with JSONata expression for Open Integration Hub (OIH)",
   "homepage": "https://www.blendededge.com",
   "author": "Blended Edge, LLC",
